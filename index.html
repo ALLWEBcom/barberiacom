@@ -3,84 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Don Navaja Barbería · Reserva tu cita</title>
-<meta name="description" content="Reserva en línea tu corte de cabello, barba y cejas. Mira los cupos disponibles y elige tu hora.">
+<meta name="theme-color" content="#09090b">
+<title>Don Navaja Barbería · Agenda tu cita</title>
+<meta name="description" content="Agenda en línea tu corte, barba y cejas. Mira los cupos libres y elige tu hora.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#inicio" aria-label="Don Navaja Barbería">
-    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M20 44 L44 20 M44 44 L20 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="19" cy="45" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="45" cy="45" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12 L28 17 L32 10 L36 17 L40 12 L39 18 H25Z" fill="currentColor"/></svg>
-    <span>Don Navaja<small>Barbería desde 2016</small></span>
+<header class="top">
+  <a class="logo" href="#inicio" aria-label="Don Navaja Barbería">
+    <svg viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path d="M20 44 L44 20 M44 44 L20 20" stroke="#09090b" stroke-width="5" stroke-linecap="round"/><circle cx="19" cy="46" r="5" fill="none" stroke="#09090b" stroke-width="4"/><circle cx="45" cy="46" r="5" fill="none" stroke="#09090b" stroke-width="4"/><path d="M22 12 L27 18 L32 9 L37 18 L42 12 L40 19 H24Z" fill="#09090b"/></svg>
   </a>
-  <nav><a href="#servicios">Servicios</a><a href="#estilos">Estilos</a><a href="#reservar">Reservar</a><a href="#contacto">Contacto</a><a class="navbtn" href="#reservar">Reservar</a></nav>
+  <div class="top-r"><a class="btn sm" href="#reservar">Agendar</a><button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><i></i><i></i></button></div>
+  <nav class="menu" id="menu" hidden><a href="#estilos">Cortes</a><a href="#reservar">Servicios y precios</a><a href="#contacto">Ubicación</a><a href="#contacto">Contacto</a></nav>
 </header>
 
 <main>
 <section class="hero" id="inicio">
-  <div class="hero-text">
-    <h1>Corte con carácter.<br>Cita sin esperas.</h1>
-    <p>Elige tu servicio, mira qué días hay cupos y reserva tu hora en menos de un minuto.</p>
-    <a class="btn" href="#reservar">Reservar mi cita</a> <a class="btn ghost" href="#estilos">Ver cortes</a>
+  <div class="in">
+    <p class="kick">Barbería · Abierto lunes a sábado</p>
+    <h1>Corte limpio.<br>Cita sin vueltas.</h1>
+    <p class="tag">Tu barbero, tu hora, tu estilo.</p>
+    <p class="lead">Reserva en menos de un minuto. Elige tu servicio, mira qué horas están libres y listo.</p>
+    <a class="btn glow big" href="#reservar">Agendar mi cita</a>
+    <a class="btn ghost big" href="#estilos">Ver cortes</a>
+    <dl class="stats"><div><dt>6</dt><dd>Estilos de corte</dd></div><div><dt>1 min</dt><dd>Para reservar</dd></div><div><dt>9–19h</dt><dd>Lun a sáb</dd></div></dl>
   </div>
-  <div class="pole" aria-hidden="true"><i></i></div>
 </section>
 
-<section class="trust"><div><b>Cupos en vivo</b>Ves la hora libre al instante</div><div><b>Sin llamadas</b>Reservas en 1 minuto</div><div><b>Navaja y toalla caliente</b>Acabado de barbería clásica</div><div><b>Lun a sáb</b>9:00 a. m. a 7:00 p. m.</div></section>
-
-<section id="servicios" class="wrap">
-  <h2>Servicios</h2>
-  <div class="grid4" id="lista-servicios"></div>
+<section class="sec" id="estilos">
+  <span class="badge"><i></i>Agenda en línea</span>
+  <h2>Tu próximo corte</h2>
+  <p class="sub">Desliza y toca el que te guste. Lo anotamos en tu cita para que tu barbero sepa qué buscas.</p>
+  <div class="car" id="lista-estilos"></div>
 </section>
 
-<section id="estilos" class="wrap">
-  <h2>Cortes de moda</h2>
-  <p class="sub">Toca el que te guste: lo anotamos en tu cita para que tu barbero sepa qué buscas.</p>
-  <div class="grid3" id="lista-estilos"></div>
-</section>
-
-<section id="reservar" class="wrap booking">
-  <h2>Reserva tu cita</h2>
-  <ol class="steps">
-    <li>
-      <h3>1. ¿Qué te vas a hacer?</h3>
-      <div class="chips" id="sel-servicios"></div>
-      <p class="hint" id="sel-estilo">Estilo de referencia: ninguno (elígelo arriba en “Cortes de moda”)</p>
-    </li>
-    <li>
-      <h3>2. Elige el día</h3>
-      <div class="days" id="dias"></div>
-    </li>
-    <li>
-      <h3>3. Elige la hora</h3>
-      <div class="slots" id="horas"><p class="hint">Primero elige un día.</p></div>
-    </li>
-    <li>
-      <h3>4. Tus datos</h3>
-      <div class="form">
-        <label>Nombre<input id="nombre" autocomplete="name" placeholder="Tu nombre"></label>
-        <label>Celular<input id="telefono" inputmode="tel" autocomplete="tel" placeholder="300 123 4567"></label>
-      </div>
-      <div class="resumen" id="resumen" aria-live="polite">Tu resumen aparecerá aquí.</div>
-      <button class="btn" id="confirmar">Confirmar reserva</button>
-      <p class="error" id="error" role="alert"></p>
-    </li>
-  </ol>
+<section class="sec" id="reservar">
+  <h2>Agenda tu cita</h2>
+  <div class="card">
+    <ol class="steps">
+      <li><span class="n">1</span><div><h3>Elige tu servicio</h3><p class="sub">Puedes combinar varios.</p>
+        <div class="opts" id="sel-servicios"></div>
+        <p class="hint" id="sel-estilo">Estilo de referencia: ninguno (elígelo arriba en “Tu próximo corte”)</p></div></li>
+      <li><span class="n">2</span><div><h3>Elige el día</h3><p class="sub">Cupos libres en vivo.</p><div class="days" id="dias"></div></div></li>
+      <li><span class="n">3</span><div><h3>Elige la hora</h3><div class="slots" id="horas"><p class="hint">Primero elige un día.</p></div></div></li>
+      <li><span class="n">4</span><div><h3>Tus datos</h3><p class="sub">Solo lo necesario para apartar tu hora.</p>
+        <div class="form"><label>Nombre<input id="nombre" autocomplete="name" placeholder="Tu nombre"></label>
+        <label>Celular<input id="telefono" inputmode="tel" autocomplete="tel" placeholder="300 123 4567"></label></div>
+        <div class="resumen" id="resumen" aria-live="polite">Tu resumen aparecerá aquí.</div>
+        <button class="btn glow big" id="confirmar">Confirmar cita</button>
+        <p class="error" id="error" role="alert"></p></div></li>
+    </ol>
+  </div>
   <div class="ok" id="ok" hidden></div>
 </section>
 
-<section id="contacto" class="wrap contact">
-  <h2>Atención al cliente</h2>
-  <p>¿Dudas, cambios o cancelaciones? Escríbenos y respondemos al momento.</p>
-  <p><a class="btn" id="wsp" target="_blank" rel="noopener">Escribir por WhatsApp</a></p>
-  <p class="hint">Lunes a sábado, 9:00 a. m. a 7:00 p. m. · Calle 10 #20-30, Soacha</p>
+<section class="sec center" id="contacto">
+  <h2>Visítanos</h2>
+  <p class="sub">Calle 10 #20-30, Soacha · Lunes a sábado, 9:00 a. m. a 7:00 p. m.</p>
+  <p><a class="btn glow big" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Calle+10+20-30+Soacha">Cómo llegar</a>
+  <a class="btn ghost big" id="wsp" target="_blank" rel="noopener">Escribirnos por WhatsApp</a></p>
 </section>
 </main>
 <footer>© <span id="anio"></span> Don Navaja Barbería</footer>
-<a class="fab" id="wsp2" target="_blank" rel="noopener" aria-label="WhatsApp">Chatea con nosotros</a>
-
+<a class="fab" id="wsp2" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" width="30" height="30"><path fill="currentColor" d="M16 3C9 3 3.400 8.600 3.400 15.500c0 2.400.7 4.700 1.900 6.600L3 29l7.100-2.200A12.500 12.500 0 0 0 16 28c7 0 12.600-5.600 12.600-12.500S23 3 16 3zm0 22.600c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.200 1.300 1.400-4-.3-.4a10 10 0 0 1-1.600-5.300C5.600 10 10.300 5.500 16 5.500s10.400 4.500 10.400 10S21.700 25.600 16 25.600zm5.700-7.500c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.300 8.300 0 0 1-4.100-3.600c-.3-.5.300-.5.900-1.600.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.500-.1 1.800-.7 2-1.400s.3-1.300.2-1.400-.3-.2-.6-.3z"/></svg></a>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>
