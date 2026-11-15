@@ -1,5 +1,7 @@
 /* CAPA DE DATOS: edita aquí tu información, no necesitas tocar el resto. */
 const CONFIG = {
+  apiUrl: "",                 // pega aquí la URL de tu Google Apps Script (ver instrucciones)
+  negocio: "Don Navaja Barbería",
   whatsapp: "573154600138",   // número temporal que recibe las citas (con indicativo, sin +)
   horaInicio: 9, horaFin: 19, // horario de atención
   intervaloMin: 30,           // duración de cada cupo
