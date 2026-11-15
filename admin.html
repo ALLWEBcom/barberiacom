@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Panel del dueño · Don Navaja</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/admin.css">
+</head><body class="adm">
+<header class="nav"><strong class="tit">Panel del dueño · <span id="neg"></span></strong>
+<nav><button class="mini" id="recargar" hidden>Actualizar</button><button class="mini" id="salir" hidden>Salir</button><a href="index.html">Ver la web</a></nav></header>
+
+<section class="login" id="login"><h2>Entrar</h2><p class="hint">Escribe la clave que pusiste en tu Google Apps Script.</p>
+<input id="pin" type="password" placeholder="Clave" autocomplete="current-password"><button class="btn" id="entrar">Entrar</button><p class="error" id="lerr"></p></section>
+
+<main id="panel" hidden>
+<div class="kpis" id="kpis"></div>
+<h2>Agenda por día</h2>
+<div class="days" id="strip"></div>
+<div class="barra"><h3 id="diaTit"></h3><button class="mini" id="bloqDia">Bloquear día completo</button></div>
+<div id="agenda" class="agenda"></div>
+<h2>Próximas citas</h2>
+<div id="proximas" class="agenda"></div>
+</main>
+<script src="js/data.js"></script><script src="js/admin.js"></script>
+</body></html>
