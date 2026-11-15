@@ -35,15 +35,14 @@ function libres(d) {
 }
 
 function pintarServicios() {
-  $("#lista-servicios").innerHTML = SERVICIOS.map(s => `<article class="srv"><h3>${s.nombre}</h3><p>${s.desc}</p><b>${peso(s.precio)}</b></article>`).join("");
-  $("#sel-servicios").innerHTML = SERVICIOS.map(s => `<button class="chip" data-id="${s.id}" aria-pressed="false">${s.nombre} · ${peso(s.precio)}</button>`).join("");
+  $("#sel-servicios").innerHTML = SERVICIOS.map(s => `<button class="opt" data-id="${s.id}" aria-pressed="false"><span><b>${s.nombre}</b><small>${s.desc}</small></span><em>${peso(s.precio)}</em><i class="chk"></i></button>`).join("");
 }
 function iconoEstilo(e) {
   const svg = `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M40 78 L40 90 H60 L60 78Z" fill="#c99a76"/><ellipse cx="50" cy="58" rx="22" ry="28" fill="#e0b48f"/><path d="${e.p}" fill="#b8893b"/><circle cx="42" cy="60" r="2" fill="#10241d"/><circle cx="58" cy="60" r="2" fill="#10241d"/><path d="M44 74 Q50 78 56 74" stroke="#10241d" stroke-width="2" fill="none"/></svg>`;
   return `<span class="foto">${svg}<img src="${e.img}" alt="Corte ${e.nombre}" loading="lazy" onerror="this.remove()"></span>`;
 }
 function pintarEstilos() {
-  $("#lista-estilos").innerHTML = ESTILOS.map(e => `<button class="estilo" data-id="${e.id}" aria-pressed="false">${iconoEstilo(e)}<span class="info"><h3>${e.nombre}</h3><p>${e.desc}</p></span></button>`).join("");
+  $("#lista-estilos").innerHTML = ESTILOS.map(e => `<button class="estilo" data-id="${e.id}" aria-pressed="false">${iconoEstilo(e)}<span class="info"><h3>${e.nombre}</h3><p>${e.desc}</p><span class="quiero">Quiero uno así</span></span></button>`).join("");
 }
 function pintarDias() {
   const cont = $("#dias"); cont.innerHTML = "";
@@ -73,12 +72,12 @@ function resumen() {
 const marcar = (cont, sel, el) => cont.querySelectorAll(sel).forEach(b => b.setAttribute("aria-pressed", b === el));
 
 document.addEventListener("click", e => {
-  const chip = e.target.closest(".chip"), est = e.target.closest(".estilo"), dia = e.target.closest(".day"), hora = e.target.closest(".slot");
+  const chip = e.target.closest(".opt"), est = e.target.closest(".estilo"), dia = e.target.closest(".day"), hora = e.target.closest(".slot");
   if (chip) { const id = chip.dataset.id; estado.servicios.has(id) ? estado.servicios.delete(id) : estado.servicios.add(id); chip.setAttribute("aria-pressed", estado.servicios.has(id)); }
   if (est) {
     estado.estilo = est.dataset.id; marcar($("#lista-estilos"), ".estilo", est);
     $("#sel-estilo").textContent = "Estilo de referencia: " + ESTILOS.find(x => x.id === estado.estilo).nombre;
-    estado.servicios.add("corte"); $('[data-id="corte"].chip').setAttribute("aria-pressed", true);
+    estado.servicios.add("corte"); $('.opt[data-id="corte"]').setAttribute("aria-pressed", true);
     $("#reservar").scrollIntoView({ behavior: "smooth" });
   }
   if (dia && !dia.disabled) { estado.fecha = dia.dataset.fecha; estado.hora = null; marcar($("#dias"), ".day", dia); pintarHoras(); }
@@ -124,3 +123,6 @@ $("#confirmar").addEventListener("click", async () => {
   $("#wsp").href = $("#wsp2").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hola, necesito ayuda con mi cita.")}`;
   $("#anio").textContent = new Date().getFullYear();
 })();
+
+$("#burger").addEventListener("click", () => { const m = $("#menu"), abrir = m.hidden; m.hidden = !abrir; $("#burger").setAttribute("aria-expanded", abrir); });
+$("#menu").addEventListener("click", () => { $("#menu").hidden = true; $("#burger").setAttribute("aria-expanded", false); });
