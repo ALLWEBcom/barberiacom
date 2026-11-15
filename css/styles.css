@@ -5,7 +5,7 @@ body{font:16px/1.6 "DM Sans",system-ui,sans-serif;color:var(--tx);background:var
 /* fondo: foto de la barbería fija + capa oscura para que se lea el texto */
 body::before{content:"";position:fixed;inset:0;z-index:-1;background:
  linear-gradient(180deg,rgba(9,9,11,.55) 0%,rgba(9,9,11,.72) 45%,rgba(9,9,11,.9) 100%),
- url(../img/fondo.jpg) 60% center/cover no-repeat,var(--bg)}
+ url(/img/fondo.jpg) 60% center/cover no-repeat,var(--bg)}
 h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",sans-serif;letter-spacing:-.02em}
 a{color:inherit}
 :focus-visible{outline:2px solid #fff;outline-offset:3px}
