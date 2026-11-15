@@ -15,3 +15,22 @@
 .acc{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .acc .mini{color:var(--tinta);border-color:#b9b19c;padding:5px 10px}
 @media(max-width:560px){.fila{grid-template-columns:54px 1fr}.acc{grid-column:1/-1;justify-content:flex-start}}
+
+/* ===== Panel en celular ===== */
+body.adm{padding-bottom:env(safe-area-inset-bottom)}
+.adm input{font-size:16px}
+.adm .nav{padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top))}
+.adm .nav nav{gap:8px}
+.adm .mini{min-height:40px}
+.adm .days{display:flex;overflow-x:auto;gap:8px;padding-bottom:8px}
+.adm .day{flex:0 0 76px}
+@media(max-width:600px){
+  .adm .nav{flex-direction:column;align-items:flex-start}
+  .adm .tit{font-size:1rem}
+  .login{margin:6vh 16px;padding:22px}
+  #panel{padding:16px 14px 90px}#panel h2{font-size:1.35rem}
+  .kpis{grid-template-columns:1fr 1fr;gap:10px}.kpi b{font-size:1.5rem}
+  .barra{flex-direction:column;align-items:stretch}.barra .mini{width:100%}
+  .fila{grid-template-columns:52px 1fr;padding:12px}
+  .acc{grid-column:1/-1;justify-content:stretch}.acc .mini{flex:1;min-height:44px}
+}
