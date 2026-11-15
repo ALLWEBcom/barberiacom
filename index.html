@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Don Navaja Barbería · Reserva tu cita</title>
+<meta name="description" content="Reserva en línea tu corte de cabello, barba y cejas. Mira los cupos disponibles y elige tu hora.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#inicio" aria-label="Don Navaja Barbería">
+    <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width=".8"/><path d="M20 44 L44 20 M44 44 L20 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="19" cy="45" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="45" cy="45" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M24 12 L28 17 L32 10 L36 17 L40 12 L39 18 H25Z" fill="currentColor"/></svg>
+    <span>Don Navaja<small>Barbería desde 2016</small></span>
+  </a>
+  <nav><a href="#servicios">Servicios</a><a href="#estilos">Estilos</a><a href="#reservar">Reservar</a><a href="#contacto">Contacto</a></nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <h1>Corte con carácter.<br>Cita sin esperas.</h1>
+    <p>Elige tu servicio, mira qué días hay cupos y reserva tu hora en menos de un minuto.</p>
+    <a class="btn" href="#reservar">Reservar mi cita</a>
+  </div>
+  <div class="pole" aria-hidden="true"><i></i></div>
+</section>
+
+<section id="servicios" class="wrap">
+  <h2>Servicios</h2>
+  <div class="grid4" id="lista-servicios"></div>
+</section>
+
+<section id="estilos" class="wrap">
+  <h2>Cortes de moda</h2>
+  <p class="sub">Toca el que te guste: lo anotamos en tu cita para que tu barbero sepa qué buscas.</p>
+  <div class="grid3" id="lista-estilos"></div>
+</section>
+
+<section id="reservar" class="wrap booking">
+  <h2>Reserva tu cita</h2>
+  <ol class="steps">
+    <li>
+      <h3>1. ¿Qué te vas a hacer?</h3>
+      <div class="chips" id="sel-servicios"></div>
+      <p class="hint" id="sel-estilo">Estilo de referencia: ninguno (elígelo arriba en “Cortes de moda”)</p>
+    </li>
+    <li>
+      <h3>2. Elige el día</h3>
+      <div class="days" id="dias"></div>
+    </li>
+    <li>
+      <h3>3. Elige la hora</h3>
+      <div class="slots" id="horas"><p class="hint">Primero elige un día.</p></div>
+    </li>
+    <li>
+      <h3>4. Tus datos</h3>
+      <div class="form">
+        <label>Nombre<input id="nombre" autocomplete="name" placeholder="Tu nombre"></label>
+        <label>Celular<input id="telefono" inputmode="tel" autocomplete="tel" placeholder="300 123 4567"></label>
+      </div>
+      <div class="resumen" id="resumen" aria-live="polite">Tu resumen aparecerá aquí.</div>
+      <button class="btn" id="confirmar">Confirmar reserva</button>
+      <p class="error" id="error" role="alert"></p>
+    </li>
+  </ol>
+  <div class="ok" id="ok" hidden></div>
+</section>
+
+<section id="contacto" class="wrap contact">
+  <h2>Atención al cliente</h2>
+  <p>¿Dudas, cambios o cancelaciones? Escríbenos y respondemos al momento.</p>
+  <p><a class="btn" id="wsp" target="_blank" rel="noopener">Escribir por WhatsApp</a></p>
+  <p class="hint">Lunes a sábado, 9:00 a. m. a 7:00 p. m. · Calle 10 #20-30, Soacha</p>
+</section>
+</main>
+<footer>© <span id="anio"></span> Don Navaja Barbería</footer>
+<a class="fab" id="wsp2" target="_blank" rel="noopener" aria-label="WhatsApp">Chatea con nosotros</a>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
