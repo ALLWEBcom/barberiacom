@@ -36,10 +36,11 @@ function pintarServicios() {
   $("#sel-servicios").innerHTML = SERVICIOS.map(s => `<button class="chip" data-id="${s.id}" aria-pressed="false">${s.nombre} · ${peso(s.precio)}</button>`).join("");
 }
 function iconoEstilo(e) {
-  return `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M40 78 L40 90 H60 L60 78Z" fill="#c99a76"/><ellipse cx="50" cy="58" rx="22" ry="28" fill="#e0b48f"/><path d="${e.p}" fill="#b8893b"/><circle cx="42" cy="60" r="2" fill="#10241d"/><circle cx="58" cy="60" r="2" fill="#10241d"/><path d="M44 74 Q50 78 56 74" stroke="#10241d" stroke-width="2" fill="none"/></svg>`;
+  const svg = `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M40 78 L40 90 H60 L60 78Z" fill="#c99a76"/><ellipse cx="50" cy="58" rx="22" ry="28" fill="#e0b48f"/><path d="${e.p}" fill="#b8893b"/><circle cx="42" cy="60" r="2" fill="#10241d"/><circle cx="58" cy="60" r="2" fill="#10241d"/><path d="M44 74 Q50 78 56 74" stroke="#10241d" stroke-width="2" fill="none"/></svg>`;
+  return `<span class="foto">${svg}<img src="${e.img}" alt="Corte ${e.nombre}" loading="lazy" onerror="this.remove()"></span>`;
 }
 function pintarEstilos() {
-  $("#lista-estilos").innerHTML = ESTILOS.map(e => `<button class="estilo" data-id="${e.id}" aria-pressed="false">${iconoEstilo(e)}<h3>${e.nombre}</h3><p>${e.desc}</p></button>`).join("");
+  $("#lista-estilos").innerHTML = ESTILOS.map(e => `<button class="estilo" data-id="${e.id}" aria-pressed="false">${iconoEstilo(e)}<span class="info"><h3>${e.nombre}</h3><p>${e.desc}</p></span></button>`).join("");
 }
 function pintarDias() {
   const cont = $("#dias"); cont.innerHTML = "";
@@ -99,8 +100,9 @@ $("#confirmar").addEventListener("click", () => {
   guardar(estado.fecha, estado.hora);
   const msg = `Hola, soy ${nombre} (${tel}). Reservé: ${sel.map(s => s.nombre).join(", ")}${est ? ", estilo " + est.nombre : ""}. Fecha ${estado.fecha} a las ${estado.hora}. Total ${peso(total)}.`;
   const ok = $("#ok"); ok.hidden = false;
-  ok.innerHTML = `<h3>¡Cita reservada, ${nombre}!</h3><p>${estado.fecha} a las ${estado.hora} · ${sel.map(s => s.nombre).join(", ")} · ${peso(total)}</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}">Enviar confirmación por WhatsApp</a>`;
+  ok.innerHTML = `<h3>¡Cita reservada, ${nombre}!</h3><p>Se abrió WhatsApp con tu cita. <b>Toca “Enviar” para que la barbería la reciba.</b></p><p>${estado.fecha} a las ${estado.hora} · ${sel.map(s => s.nombre).join(", ")} · ${peso(total)}</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}">Abrir WhatsApp de nuevo</a>`;
   ok.scrollIntoView({ behavior: "smooth" });
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
   estado.hora = null; pintarDias(); $("#horas").innerHTML = '<p class="hint">Elige un día para otra reserva.</p>';
 });
 
