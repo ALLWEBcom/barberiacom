@@ -71,3 +71,8 @@ input{font:inherit;padding:13px;border:2px solid #d4cebd;border-radius:4px;backg
 footer{background:var(--verde);color:var(--hueso);text-align:center;padding:26px;font-size:.9rem}
 .fab{position:fixed;right:16px;bottom:16px;z-index:6;background:#1f8f4e;color:#fff;font-weight:700;padding:13px 20px;border-radius:30px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}
 @media(max-width:700px){.hero{grid-template-columns:1fr;min-height:70vh}.pole{height:80px;border-radius:40px}.pole i{height:100%}.nav nav a:not(.navbtn){display:none}.btn.ghost{margin:10px 0 0}}
+/* Fondo de barbería: foto img/hero.jpg + madera oscura y piso ajedrezado como respaldo */
+.hero{background:linear-gradient(100deg,rgba(12,24,19,.94) 30%,rgba(12,24,19,.5)),url(../img/hero.jpg) center/cover,repeating-linear-gradient(90deg,#2a1a10 0 46px,#33200f 46px 48px),var(--verde2)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;background:conic-gradient(#f3eee3 25%,#14110d 0 50%,#f3eee3 0 75%,#14110d 0) 0 0/44px 44px;border-top:3px solid var(--latón)}
+.hero{padding-bottom:calc(8vw + 22px)}
+#estilos{background:linear-gradient(rgba(243,238,227,.94),rgba(243,238,227,.94)),repeating-linear-gradient(45deg,#d9cfb8 0 2px,transparent 2px 14px)}
